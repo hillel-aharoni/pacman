@@ -77,16 +77,16 @@ public class Game {
         player.setBounds(260, 460, width, height);
         player.setBackground(Color.RED);
 
-        pink_ghost1 = new Pink_Ghost(280, 280, "C:\\Users\\HOME\\IdeaProjects\\JFrame\\src\\GameV2\\img\\ghost.gif");
+        pink_ghost1 = new Pink_Ghost(280, 280, "C:\\Users\\HOME\\Documents\\GitHub\\pacman\\src\\GameV2\\img\\ghost.gif");
         layeredPane.add(pink_ghost1, JLayeredPane.PALETTE_LAYER);
 
-        pink_ghost2 = new Pink_Ghost(240, 280, "C:\\Users\\HOME\\IdeaProjects\\JFrame\\src\\GameV2\\img\\ghost.gif");
+        pink_ghost2 = new Pink_Ghost(240, 280, "C:\\Users\\HOME\\Documents\\GitHub\\pacman\\src\\GameV2\\img\\ghost.gif");
         layeredPane.add(pink_ghost2, JLayeredPane.PALETTE_LAYER);
 
-        pink_ghost3 = new Pink_Ghost(260, 260, "C:\\Users\\HOME\\IdeaProjects\\JFrame\\src\\GameV2\\img\\ghost.gif");
+        pink_ghost3 = new Pink_Ghost(260, 260, "C:\\Users\\HOME\\Documents\\GitHub\\pacman\\src\\GameV2\\img\\ghost.gif");
         layeredPane.add(pink_ghost3, JLayeredPane.PALETTE_LAYER);
 
-        pink_ghost4 = new Pink_Ghost(260, 200, "C:\\Users\\HOME\\IdeaProjects\\JFrame\\src\\GameV2\\img\\ghost.gif");
+        pink_ghost4 = new Pink_Ghost(260, 200, "C:\\Users\\HOME\\Documents\\GitHub\\pacman\\src\\GameV2\\img\\ghost.gif");
         layeredPane.add(pink_ghost4, JLayeredPane.PALETTE_LAYER);
 
 

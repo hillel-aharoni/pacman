@@ -27,7 +27,7 @@ public class Massages {
 
     public static void victory() {
         // יצירת תווית עם הטקסט והפונט הרצוי
-        JLabel messageLabel = new JLabel("חתיכת פג בטח אתה מעוניין לדעת מה הניקוד שלך זה מה שאתה יודע לעשות לשחק פקמן אולי פעם הבאה תצליח יותר קח :  " + Game.score);
+        JLabel messageLabel = new JLabel("יפה לך ניקודך הוא :  " + Game.score);
         messageLabel.setFont(new Font("David", Font.BOLD, 18)); // שינוי הפונט לפונט הרצוי
         messageLabel.setHorizontalAlignment(SwingConstants.CENTER); // מיקום הטקסט במרכז
 

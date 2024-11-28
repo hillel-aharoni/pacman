@@ -12,7 +12,7 @@ public class Player extends JPanel {
     public Player() {
         setBounds(260, 460, 40, 40); // התאמת הגבולות לגודל הרצוי
         setOpaque(false);
-        loadImage("C:\\Users\\HOME\\IdeaProjects\\JFrame\\src\\GameV2\\img\\pacman.png");
+        loadImage("C:\\Users\\HOME\\Documents\\GitHub\\pacman\\src\\GameV2\\img\\pacman.png");
         gifWidth = 20;  // רוחב מותאם
         gifHeight = 20; // גובה מותאם
     }

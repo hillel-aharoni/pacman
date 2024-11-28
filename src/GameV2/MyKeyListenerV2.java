@@ -17,19 +17,19 @@ public class MyKeyListenerV2 implements KeyListener {
 
         switch (e.getKeyCode()) {
             case KeyEvent.VK_UP:
-                Game.player.loadImage("C:\\Users\\HOME\\IdeaProjects\\JFrame\\src\\GameV2\\img\\up.gif");
+                Game.player.loadImage("C:\\Users\\HOME\\Documents\\GitHub\\pacman\\src\\GameV2\\img\\up.gif");
                 newY -= 20;
                 break;
             case KeyEvent.VK_DOWN:
-                Game.player.loadImage("C:\\Users\\HOME\\IdeaProjects\\JFrame\\src\\GameV2\\img\\down.gif");
+                Game.player.loadImage("C:\\Users\\HOME\\Documents\\GitHub\\pacman\\src\\GameV2\\img\\down.gif");
                 newY += 20;
                 break;
             case KeyEvent.VK_LEFT:
-                Game.player.loadImage("C:\\Users\\HOME\\IdeaProjects\\JFrame\\src\\GameV2\\img\\left.gif");
+                Game.player.loadImage("C:\\Users\\HOME\\Documents\\GitHub\\pacman\\src\\GameV2\\img\\left.gif");
                 newX -= 20;
                 break;
             case KeyEvent.VK_RIGHT:
-                Game.player.loadImage("C:\\Users\\HOME\\IdeaProjects\\JFrame\\src\\GameV2\\img\\right.gif");
+                Game.player.loadImage("C:\\Users\\HOME\\Documents\\GitHub\\pacman\\src\\GameV2\\img\\right.gif");
                 newX += 20;
                 break;
 
@@ -58,9 +58,9 @@ public class MyKeyListenerV2 implements KeyListener {
             Massages.scoreLabel.setText("ניקוד :" + Game.score);
 
             System.out.println(Game.score);
-        if (Game.score == Game.allScore){
-            Massages.victory();
-           }
+            if (Game.score == Game.allScore){
+                Massages.victory();
+            }
         }
 
         if (newX == 520 && newY == 280) {
