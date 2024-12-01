@@ -37,7 +37,7 @@ public class Pink_Ghost extends JPanel {
             case RIGHT -> currentX = x + 20;
             case LEFT -> currentX = x - 20;
         }
-        if(D_Map.canMove(currentX, currentY)) {
+        if(D_Map.canMoove(currentX, currentY)) {
             x = currentX;
             y = currentY;
         }

@@ -44,7 +44,7 @@ public class D_Map {
             {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
     };
 
-    public static boolean canMove(int x, int y){
+    public static boolean canMoove(int x, int y){
         int mapX = x / 20;
         int mapY = y / 20;
         if (mapX>= 0 && mapX < D_Map[0].length &&
