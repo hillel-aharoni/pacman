@@ -1,4 +1,4 @@
-package game.sound;
+package sound;
 
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -13,9 +13,9 @@ public class Sound {
     private boolean isPlaying = false;
 
     public Sound(){
-        soundURL[0] = getClass().getResource("/game/sound/death.wav");
-        soundURL[1] = getClass().getResource("/game/sound/newGame.wav");
-        soundURL[2] = getClass().getResource("/game/sound/nomnom.wav");
+        soundURL[0] = getClass().getResource("C:\\Users\\HOME\\Documents\\GitHub\\pacman\\src\\sound\\death.wav");
+        soundURL[1] = getClass().getResource("C:\\Users\\HOME\\Documents\\GitHub\\pacman\\src\\sound\\newGame.wav");
+        soundURL[2] = getClass().getResource("C:\\Users\\HOME\\Documents\\GitHub\\pacman\\src\\sound\\nomnom.wav");
     }
 
     public void setFile(int i){
@@ -63,4 +63,5 @@ public class Sound {
             isPlaying = false;
         }
     }
+
 }

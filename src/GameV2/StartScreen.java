@@ -20,13 +20,13 @@ public class StartScreen extends JPanel {
         
         // כותרת המשחק
         JLabel titleLabel = new JLabel("PAC-MAN-HILLEL");
-        titleLabel.setFont(new Font("Arial", Font.BOLD, 48));
+        titleLabel.setFont(new Font("Arial", Font.BOLD, 42));
         titleLabel.setForeground(BRIGHT_YELLOW);
         titleLabel.setBounds(width/2 - 200, height/4, 400, 60);
         add(titleLabel);
 
         // תת כותרת
-        JLabel subtitleLabel = new JLabel("Press Start to Play!");
+        JLabel subtitleLabel = new JLabel("Start to Play!");
         subtitleLabel.setFont(new Font("Arial", Font.BOLD, 24));
         subtitleLabel.setForeground(TURQUOISE);
         subtitleLabel.setBounds(width/2 - 100, height/4 + 70, 200, 30);

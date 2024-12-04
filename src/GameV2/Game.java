@@ -39,7 +39,7 @@ public class Game {
         Massages.resetLives();
         
         // החזרת השחקן למיקום ההתחלתי
-        player.setLocation(playerStartPosition);
+        player.setLocation(playerStartPosition.x, playerStartPosition.y);
         
         // החזרת הרוחות למיקום ההתחלתי
         pink_ghost1.setLocation(ghostStartPositions[0].x, ghostStartPositions[0].y);
@@ -50,7 +50,7 @@ public class Game {
 
     public static void resetPositions() {
         // החזרת השחקן והרוחות למיקום ההתחלתי
-        player.setLocation(playerStartPosition);
+        player.setLocation(playerStartPosition.x, playerStartPosition.y);
         pink_ghost1.setLocation(ghostStartPositions[0].x, ghostStartPositions[0].y);
         pink_ghost2.setLocation(ghostStartPositions[1].x, ghostStartPositions[1].y);
         pink_ghost3.setLocation(ghostStartPositions[2].x, ghostStartPositions[2].y);
@@ -60,11 +60,26 @@ public class Game {
     public static void checkGhostCollision() {
         Rectangle playerBounds = player.getBounds();
         Pink_Ghost[] ghosts = {pink_ghost1, pink_ghost2, pink_ghost3, pink_ghost4};
+        Point[] startPositions = {
+            ghostStartPositions[0],
+            ghostStartPositions[1],
+            ghostStartPositions[2],
+            ghostStartPositions[3]
+        };
         
-        for (Pink_Ghost ghost : ghosts) {
+        for (int i = 0; i < ghosts.length; i++) {
+            Pink_Ghost ghost = ghosts[i];
             if (playerBounds.intersects(ghost.getBounds())) {
-                Massages.loseLife();
-                resetPositions();
+                if (player.isPowered()) {
+                    // במצב כוח - הרוח חוזרת לנקודת ההתחלה
+                    ghost.setLocation(startPositions[i].x, startPositions[i].y);
+                    score += 200;  // בונוס על אכילת רוח
+                    Massages.scoreLabel.setText("ניקוד : " + score);
+                } else {
+                    // במצב רגיל - מאבדים חיים
+                    Massages.loseLife();
+                    resetPositions();
+                }
                 break;
             }
         }

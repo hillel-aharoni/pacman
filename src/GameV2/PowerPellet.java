@@ -5,31 +5,50 @@ import java.awt.*;
 
 public class PowerPellet extends JPanel {
     private boolean isVisible = true;
+    private boolean isCollected = false;
     private Timer blinkTimer;
     
     public PowerPellet() {
         setPreferredSize(new Dimension(16, 16));
-        setBackground(Color.WHITE);
+        setBackground(Color.BLACK);
+        setOpaque(false);
         
         // יצירת טיימר להבהוב כל חצי שניה
         blinkTimer = new Timer(500, e -> {
-            isVisible = !isVisible;
-            repaint();
+            if (!isCollected) {
+                isVisible = !isVisible;
+                repaint();
+            }
         });
         blinkTimer.start();
+    }
+    
+    public PowerPellet(int x, int y) {
+        this();
+        setBounds(x, y, 16, 16);
     }
     
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        if (isVisible) {
+        if (isVisible && !isCollected) {
             g.setColor(Color.WHITE);
-            g.fillOval(0, 0, getWidth(), getHeight());
+            int size = Math.min(getWidth(), getHeight()) - 4;
+            g.fillOval(2, 2, size, size);
         }
     }
     
     public void collect() {
-        blinkTimer.stop();
-        setVisible(false);
+        isCollected = true;
+        isVisible = false;
+        Game.score += 50;  // הוספת 50 נקודות
+        Game.player.activatePowerMode();  // הפעלת מצב כוח לפקמן
+
+        Massages.scoreLabel.setText("ניקוד : " + Game.score);
+        repaint();
+    }
+
+    public boolean isCollected() {
+        return isCollected;
     }
 }

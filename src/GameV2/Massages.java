@@ -37,21 +37,72 @@ public class Massages {
     }
 
     private static void showGameOverDialog() {
-        int choice = JOptionPane.showOptionDialog(null,
-            "Game Over!\nמה ברצונך לעשות?",
-            "Game Over",
-            JOptionPane.YES_NO_OPTION,
-            JOptionPane.QUESTION_MESSAGE,
-            null,
-            new String[]{"משחק חדש", "יציאה"},
-            "משחק חדש");
+        JPanel panel = new JPanel();
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+        panel.setBackground(new Color(44, 62, 80));
+        panel.setBorder(BorderFactory.createEmptyBorder(20, 30, 20, 30));
 
-        if (choice == 0) {
-            // התחל משחק חדש
-            Game.resetGame();
-        } else {
-            System.exit(0);
+        // כותרת המשחק נגמר
+        JLabel gameOverLabel = new JLabel("Game Over!");
+        gameOverLabel.setFont(new Font("Arial", Font.BOLD, 24));
+        gameOverLabel.setForeground(Color.WHITE);
+        gameOverLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        // תצוגת הניקוד
+        JLabel scoreLabel = new JLabel("הניקוד הסופי שלך: " + Game.score);
+        scoreLabel.setFont(new Font("Arial", Font.BOLD, 18));
+        scoreLabel.setForeground(new Color(46, 204, 113));
+        scoreLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        // כפתורים
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
+        buttonPanel.setOpaque(false);
+
+        JButton restartButton = new JButton("שחק שוב");
+        JButton exitButton = new JButton("יציאה");
+
+        // עיצוב כפתורים
+        for (JButton button : new JButton[]{restartButton, exitButton}) {
+            button.setFont(new Font("Arial", Font.BOLD, 14));
+            button.setForeground(Color.WHITE);
+            button.setBackground(new Color(52, 152, 219));
+            button.setBorderPainted(false);
+            button.setFocusPainted(false);
+            button.setCursor(new Cursor(Cursor.HAND_CURSOR));
         }
+        exitButton.setBackground(new Color(231, 76, 60));
+
+        buttonPanel.add(restartButton);
+        buttonPanel.add(Box.createRigidArea(new Dimension(10, 0)));
+        buttonPanel.add(exitButton);
+
+        panel.add(gameOverLabel);
+        panel.add(Box.createRigidArea(new Dimension(0, 15)));
+        panel.add(scoreLabel);
+        panel.add(Box.createRigidArea(new Dimension(0, 20)));
+        panel.add(buttonPanel);
+
+        JDialog dialog = new JDialog();
+        dialog.setUndecorated(true);
+        dialog.getRootPane().setWindowDecorationStyle(JRootPane.NONE);
+        dialog.setBackground(new Color(0, 0, 0, 0));
+        dialog.setContentPane(panel);
+        dialog.pack();
+        dialog.setLocationRelativeTo(null);
+        dialog.setModal(true);
+
+        restartButton.addActionListener(e -> {
+            dialog.dispose();
+            Game.resetGame();
+        });
+
+        exitButton.addActionListener(e -> {
+            dialog.dispose();
+            System.exit(0);
+        });
+
+        dialog.setVisible(true);
     }
 
     public static void victory() {

@@ -47,6 +47,12 @@ public class MyKeyListenerV2 implements KeyListener {
             Game.player.setLocation(newX, newY);
         }
         System.out.println("x="+newX+" y=" +newY);
+
+        // בדיקה אם יש נקודת כוח במיקום הנוכחי
+        if (Game.powerPellets[mapY][mapX] != null && !Game.powerPellets[mapY][mapX].isCollected()) {
+            Game.powerPellets[mapY][mapX].collect();
+        }
+
         // בדיקה אם יש מטבע במיקום הנוכחי
         if (Game.coins[mapY][mapX] != null) {
             // הסרת מטבע מהמסך
