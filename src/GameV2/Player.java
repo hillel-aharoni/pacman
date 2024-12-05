@@ -112,7 +112,17 @@ public class Player extends JPanel {
                 Game.score++;
                 Massages.scoreLabel.setText("ניקוד :" + Game.score);
                 
-                if (Game.score == Game.allScore) {
+                // בדיקה אם נאספו כל הנקודות במפה
+                boolean allCoinsCollected = true;
+                for (int i = 0; i < Game.coins.length; i++) {
+                    for (int j = 0; j < Game.coins[i].length; j++) {
+                        if (Game.coins[i][j] != null) {
+                            allCoinsCollected = false;
+                            break;
+                        }
+                    }
+                }
+                if (allCoinsCollected) {
                     Massages.victory();
                 }
             }
